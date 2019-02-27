@@ -7,8 +7,8 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.collider.tag == "Obstacle")
         {
-            GetComponent<PlayerMovement>().enabled = false;
             FindObjectOfType<GameManager>().EndGame();
+            GameObject.Find("Main Camera").GetComponent<CameraControl>().enabled = false;
             gameObject.GetComponent<Destructible>().Explode();
             FindObjectOfType<AudioManager>().Play("PlayerDeath");
         }

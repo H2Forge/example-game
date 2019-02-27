@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameHasEnded == false) {
             gameHasEnded = true;
+            GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = false;
             Invoke("Restart", restartDelay);
         }
     }
